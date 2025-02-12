@@ -1,0 +1,681 @@
+/* Reset di base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    background-color: #f9f9f9;
+    color: #333;
+    overflow-x: hidden;
+}
+
+/* Header */
+header {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    padding: 40px 20px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    font-size: 3rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    animation: fadeInDown 1s ease-out;
+    background: linear-gradient(45deg, rgb(255, 208, 0), rgb(255, 208, 0), rgb(255, 138, 5));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: background 1s ease;
+}
+
+nav ul {
+    list-style: none;
+    padding: 10px;
+    margin-top: 20px;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #ff6600;
+}
+
+/* Sezioni principali */
+main {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+section {
+    margin-bottom: 60px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+section h2 {
+    font-size: 2.5rem;
+    color: #ff6600;
+    margin-bottom: 20px;
+    position: relative;
+    display: inline-block;
+}
+
+section h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: #ffcc00;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.5s ease;
+}
+
+section.visible h2::after {
+    transform: scaleX(1);
+}
+
+section p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    color: #555;
+}
+
+section ul {
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+
+section ul li {
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+    color: #555;
+}
+
+/* Effetto sulle immagini (Tuo codice originale, intatto) */
+section img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-top: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+section img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(255, 204, 0, 0.8), 0 0 40px rgba(255, 204, 0, 0.6), 0 0 60px rgba(255, 204, 0, 0.4);
+}
+
+section img::before {
+    content: '';
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 20px;
+    height: 20px;
+    background-color: #ffcc00;
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(255, 204, 0, 0.8), 0 0 20px rgba(255, 204, 0, 0.6), 0 0 30px rgba(255, 204, 0, 0.4);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+section img:hover::before {
+    opacity: 1;
+}
+
+/* Form di contatto */
+form {
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+form label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+form input, form textarea {
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+form input:focus, form textarea:focus {
+    border-color: #ff6600;
+    box-shadow: 0 0 8px rgba(255, 102, 0, 0.3);
+    outline: none;
+}
+
+form button {
+    padding: 12px 20px;
+    background-color: #ff6600;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+form button:hover {
+    background-color: #cc5200;
+    transform: translateY(-2px);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #333;
+    color: #fff;
+    margin-top: 60px;
+}
+
+footer p {
+    margin: 0;
+    font-size: 1rem;
+}
+
+/* Animazioni */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2.5rem;
+    }
+
+    nav ul li {
+        display: block;
+        margin: 10px 0;
+    }
+
+    main {
+        padding: 15px;
+    }
+
+    section h2 {
+        font-size: 2rem;
+    }
+
+    form {
+        padding: 0 10px;
+    }
+}
+
+/* Stile per l'immagine del sole (Tuo codice originale) */
+.sole {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 100px;
+    height: auto;
+    z-index: 1000;
+}
+
+/* Aggiunte nuove (Solo queste sono nuove!) */
+/* 1. Pulsante "Torna su" */
+#back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #ff6600;
+    color: #fff;
+    padding: 12px 15px;
+    border-radius: 50%;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 1000;
+}
+
+#back-to-top.visible {
+    opacity: 1;
+}
+
+#back-to-top:hover {
+    background-color: #cc5200;
+    transform: translateY(-5px);
+}
+
+/* 2. Ombreggiatura dinamica per l'header */
+header::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 100%;
+    height: 10px;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.1), transparent);
+}
+
+/* 3. Animazione "fluttuante" per il sole */
+@keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+}
+
+.sole {
+    animation: float 3s ease-in-out infinite;
+}
+
+/* 4. Sfumatura per il footer */
+footer {
+    background: linear-gradient(135deg, #333, #222);
+}
+/* Aggiunte/modifiche principali */
+
+/* Nuova palette colori professionali */
+:root {
+    --primary-color: #FF6B35;
+    --secondary-color: #004E89;
+    --accent-color: #FFD400;
+    --background-color: #f8f9fa;
+    --text-color: #2d3436;
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+
+section h2 {
+    color: var(--secondary-color);
+}
+
+section h2::after {
+    background: var(--accent-color);
+}
+
+/* Quiz professionale */
+.quiz-container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+}
+
+.quiz-progress {
+    height: 4px;
+    background: #eee;
+    margin-bottom: 2rem;
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.quiz-progress-bar {
+    height: 100%;
+    background: var(--accent-color);
+    transition: width 0.3s ease;
+}
+
+.quiz-question {
+    font-size: 1.4rem;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+    color: var(--secondary-color);
+}
+
+.quiz-answers {
+    display: grid;
+    gap: 1rem;
+}
+
+.quiz-answer {
+    padding: 1rem;
+    background: #f8f9fa;
+    border: 2px solid #eee;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.quiz-answer:hover {
+    transform: translateY(-2px);
+    border-color: var(--accent-color);
+}
+
+.quiz-answer.correct {
+    background: #d4edda;
+    border-color: #28a745;
+}
+
+.quiz-answer.wrong {
+    background: #f8d7da;
+    border-color: #dc3545;
+}
+
+/* Pulsante Torna Su migliorato */
+#back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: var(--primary-color);
+    color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+#back-to-top.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+#back-to-top:hover {
+    background: var(--secondary-color);
+    transform: translateY(-3px) scale(1.1);
+}
+
+/* Migliorie generali */
+section {
+    padding: 4rem 0;
+}
+
+section img {
+    border: 3px solid white;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+form button {
+    background: var(--secondary-color);
+    transition: all 0.3s ease;
+}
+
+form button:hover {
+    background: var(--primary-color);
+}
+/* ================================
+   Contenitore delle icone (Sole e Luna)
+   ================================ */
+   #theme-toggle-container {
+    position: fixed;
+    top: 20px;
+    right: 50px;  /* Spostato un po' più dentro per evitare il bordo */
+    width: 80px;
+    height: 80px;
+    z-index: 1000;
+}
+
+/* ================================
+   Icone del Sole e della Luna
+   ================================ */
+.theme-icon {
+    position: absolute;
+    width: 80px;  /* Icone più grandi */
+    height: 80px;
+    cursor: pointer;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+    animation: float 3s infinite ease-in-out;
+}
+
+/* Animazione fluttuante su e giù */
+@keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+}
+
+/* Nasconde la luna o il sole quando non è attivo */
+.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* ================================
+   Transizione generale dei colori
+   ================================ */
+body {
+    transition: color 1s ease;
+}
+
+/* ================================
+   Modalità Dark
+   ================================ */
+body.dark-mode {
+    background-color: #000; /* Sfondo nero */
+    color: #ffffff;        /* Testo bianco */
+    transition: background-color 1s ease, color 1s ease;
+}
+
+body.dark-mode main {
+    background-color: #000;
+}
+
+/* Header in Dark Mode: sfondo giallo e titolo con gradiente multicolore */
+.dark-mode header {
+    background-color: rgb(0, 0, 0);  /* Giallo carino in RGB */
+    border: none;
+    transition: background-color 1s ease;
+}
+
+body.dark-mode header {
+    background: linear-gradient(90deg, rgb(30, 30, 30), rgb(50, 50, 50), rgb(20, 20, 20));
+}
+
+
+/* Titolo dell'header in Dark Mode: effetto gradiente multicolore */
+.dark-mode header h1 {
+    background: linear-gradient(45deg, rgb(243, 34, 34), rgba(21, 81, 245, 0.87), rgb(0, 0, 255));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: background 1s ease;
+}
+
+
+/* Footer in Dark Mode */
+.dark-mode footer {
+    background-color: #002244;
+    border: none;
+    transition: background-color 1s ease;
+}
+
+/* Sezioni (compresi i paragrafi, liste, etc.) in Dark Mode */
+.dark-mode section {
+    background-color: #000;
+    border: none;
+    color: #ffffff;
+    transition: background 1s ease, color 1s ease;
+}
+
+.dark-mode section h2 {
+    color: #ffffff;
+}
+
+.dark-mode section p,
+.dark-mode section ul li {
+    color: #ffffff;
+}
+
+/* ================================
+   Etichette dei Form (es. Contatti e Newsletter)
+   ================================ */
+.dark-mode label {
+    color: #ffffff;
+}
+
+.dark-mode .quiz-container {
+    background-color: #555;
+}
+.dark-mode .quiz-result-final{
+    color: white
+}
+
+.dark-mode .quiz-question {
+    color: #5db9ff;
+}
+
+.quiz-result-final {
+    color: #000000;
+}
+/* Stile per il pulsante "Riprova" all'interno del quiz */
+.quiz-result-final button {
+    padding: 12px 24px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #ffffff;
+    background-color: #4CAF50;  /* Colore di base in modalità chiara */
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.quiz-result-final button:hover {
+    background-color: #45a049;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* In modalità dark, cambia leggermente il colore del pulsante per adattarsi allo sfondo scuro */
+body.dark-mode .quiz-result-final button {
+    background-color: #66BB6A;  /* Colore leggermente diverso per la modalità dark */
+    color: #ffffff;
+}
+
+body.dark-mode .quiz-result-final button:hover {
+    background-color: #57a05a;
+}
+/* Stile della sezione Chi Siamo */
+#team {
+    text-align: center;
+    padding: 50px 20px;
+    font-family: 'Poppins', sans-serif;
+}
+
+#team h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* Paragrafo descrittivo */
+#team p {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+/* Contenitore del team */
+.team-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+
+/* Stile per i nomi dei membri del team */
+.team-member {
+    background: linear-gradient(135deg, #4CAF50, #388E3C);
+    color: white;
+    padding: 15px 25px;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Effetto hover sui membri del team */
+.team-member:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+}
+.dark-mode #team h2 {
+    color: white;
+}
+
+.dark-mode #team p {
+    color: rgb(209, 203, 203);
+}
+body {
+    transition: background 0.5s ease-in-out, color 0.5s ease-in-out;
+}
+
+header {
+    transition: background 0.5s ease-in-out;
+}
